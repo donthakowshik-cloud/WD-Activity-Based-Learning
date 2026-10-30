@@ -1,0 +1,490 @@
+ * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-dark: #111111;
+            --bg-card: #1c1c1c;
+            --bg-card-hover: #262626;
+            --accent: #d4ff00;
+            --text-main: #ffffff;
+            --text-muted: #aaaaaa;
+            --border-color: #333333;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* CONTAINER */
+        .container {
+            width: 100%;
+            max-w: 1100px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            text-align: center;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 8px auto 0;
+        }
+
+        .accent-text {
+            color: var(--accent);
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #000000;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border: 2px solid var(--accent);
+            cursor: pointer;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border-color: var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            background-color: var(--text-main);
+            color: #000000;
+        }
+
+        /* 1. HEADER & NAVIGATION */
+        header {
+            background-color: rgba(17, 17, 17, 0.95);
+            border-b: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* 2. HERO SECTION */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(180deg, rgba(212, 255, 0, 0.03) 0%, rgba(17, 17, 17, 1) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* SECTIONS COMMON */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* 3. WORKOUT PROGRAMS */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .program-card {
+            background-color: var(--bg-card);
+            padding: 30px 20px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background-color: var(--bg-card-hover);
+        }
+
+        .program-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .program-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* 4. FITNESS FACILITIES */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .facility-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 16px 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .facility-badge {
+            background-color: var(--accent);
+            color: #000;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        /* 5. TRAINER PROFILES */
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .trainer-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 24px;
+            text-align: center;
+            transition: border-color 0.25s;
+        }
+
+        .trainer-card:hover {
+            border-color: var(--accent);
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background-color: var(--bg-dark);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .trainer-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .specialty {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .trainer-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* 6. CLASS SCHEDULE TABLE */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background-color: var(--bg-card);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .schedule-table th, 
+        .schedule-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .schedule-table th {
+            background-color: #000;
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .schedule-table td {
+            font-size: 0.9rem;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-table tr:hover td {
+            background-color: var(--bg-card-hover);
+        }
+
+        .time-col {
+            font-weight: 700;
+            color: var(--text-main);
+            width: 140px;
+        }
+
+        /* 7. RESPONSIVE PRICING TABLE */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--accent);
+            background-color: #222222;
+            position: relative;
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 12px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .features-list li strong {
+            color: var(--text-main);
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* 8. REGISTRATION FORM */
+        .form-wrapper {
+            max-width: 550px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 6px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Keep navigation sleek on smaller mobile viewports */
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .form-wrapper {
+                padding: 25px 20px;
+            }
+        }
